@@ -153,3 +153,170 @@ dependencias, scripts, entre otros
 4-Finalmente ejecutamos el comando "npm start"
 
 */
+
+//TIPOS DE DATOS Y SUBTIPOS!!!
+
+/*Todos los tipos en typescript son subtipos de un unico tipo principal denominado ANY, 
+representa cualquier valor de Javascript sin restricciones 
+
+ANY: Puede ser de cualquier tipo y su uso está justificado cuando no 
+tenemos informancion a priori de que tipo de dato se trata. Este tipo de 
+definicion es propia de Typescript, sintaxis:*/
+
+let cantidad: any=4;
+let desc: any []=[1,true,"verde"];
+
+//TIPOS DE DATOS PRIMITIVOS!!!
+
+/*los tipos primitivos son: boolean, number, string, void, null, undefined
+y enum.*/
+
+//String: Representa valores de cadena de caracteres(letras);
+let saludo:string = "Hola, Mundo";
+
+/*Tambien se puede usar plantillas de cadenas con las que podemos intercalar 
+texto con otras variables*/
+let nombre:string="Mateo";
+let mensaje: string=`Mi nombre es ${nombre}. Soy nuevo en Typescript.`;
+console.log(mensaje);
+
+//Number: Representa valores numéricos, como enteros(int) o decimales(float)
+
+let codigoProducto: number=6;
+
+/*Boolean: Es un tipo de variable que puede tener solo dos valores,
+Verdadero(true) o False(false).*/
+
+let estadoProducto:boolean=false;
+
+/*Void: El tipo existe únicamente para indicar la ausencia de un valor
+como por ejemplo en una función que no devuelve ningún valor.*/
+
+function mensajeUsuario():void{
+    console.log("Este es un mensaje para el usuario");
+}
+
+/*Enum: Las enumeraciones ofrecen una manera sencilla de trabajar con 
+conjuntos de constantes relacionadas. Un elemento enum es un nombre
+simbólico para un conjunto de valores. Las enumeraciones se tratan 
+como tipo de datos y se pueden usar a fin de crear conjuntos de constantes
+para su uso con variables y propiedades.
+
+Siempre que un procedimiento acepte un conjunto limitado de variables, 
+considere la posibilidad de usar una enumeración. Las enumeraciones hacen 
+que el codigo sea más claro y legible, especialmente cuando se usan nombres
+significativos.*/
+
+//Crear la enumeración
+enum Color {
+    Blanco,
+    Rojo,
+    verde
+}
+//Declarar la variable y asignar un valor de la enumeración 
+let colorAuto:Color= Color.Blanco;
+
+console.log(colorAuto);//RETURN 0
+
+
+//-----TIPO DE OBJETOS------
+
+
+/*Los tipos de objeto son todos los tipos de clase de clase de interfaz, 
+de arreglos y literales
+
+nota: Los tipos de clase e interfaz se abordarán más adelante en este
+mismo módulo
+
+Array: Es un tipo de colección o grupos de datos(vectores, matrices). El 
+agrupamiento lleva como antecesor el tipo de datos que contendrpa el 
+arreglo.*/
+
+let list : string[]=['pimiento','papas','tomates'];
+
+let rocosos:boolean[]=[true, false, false, true];
+
+let perdidos:any[]=[9,true,'asteroide'];
+
+let diametro: [string, number]=['Saturno', 116460];
+
+
+//Generic: También puedes definir tipos genéricos como sigue
+function identity1<T>(arg:T):T{
+    return arg;
+}
+/*Los genéricos son como una especie de plantillas mediante los cuales 
+podemos aplicar un tipo de datos determinado a varios puntos de nuestro 
+código. Sirven para aprovechar código, sin tener que duplicarlo por causa
+de cambios de tipo evitando la necesidad de usar el tipo "any".
+
+Los mismos se indican entre "mayores y menores" y pueden ser de cualquier 
+tipo incluso clases e interfaces.*/
+
+//Si tenemos la siguiente función:
+function identity2(arg:number):number{
+    return arg;
+}
+//Pero necesitamos que la misma sea válida para otros tipos de datos
+//entonces podriamos cambiar el tipo number por any.
+
+function identity3(arg:any):any{
+    return arg;
+}
+
+/*Sin embargo, el tipo any permite cualquier tipo de valor por lo que la 
+función podría recibir un tipo number y devolver otro. Entonces, estamos
+perdiendo informacion sobre el tipo que debe devolver la función. Para 
+solucionarlo, y obligar al compilador que respete el mismo tipo (parámetros
+de entrada y salida) podemos utilizar genéricos.*/
+
+function identity4<T>(arg:T):T{
+    return arg;
+}
+/*Observa que cambiamos any por la letra T
+T nos permite capturar el tipo de datos por lo que el tipo utilizado para
+el argumento es el msimo que el tipo de retorno.*/
+
+//----OBJECT: Es un tipo de dato que engloba a la mayoría de los tipos 
+// no primitivos
+
+let persona:object={nombre:"Ana", edad:45};
+
+
+//DESESTRUCTURACIÓN: Permite acceder a los valores de un array o un objeto
+
+//Ejemplo desestructuracion de un objeto
+var obj={a:1, b:2, c:3};
+console.log(obj.c);
+
+//Ejemplo desestructuracion de un array
+var array=[1,2,3];
+console.log(array[2]);
+
+//Ejemplo desestructuracion con estructuración
+
+/* var array=[1,2,3,5];
+   var [x,y, ...rest]=array;
+   console.log(rest);   */
+
+/*La sintaxis ...rest nos permite agregar más parámetros. En este caso
+el resultado en consola será:[3,5]*/
+
+/*ESTRUCTURACIÓN: Como se pudo observar en el apartado anterior, la 
+estructuracion facilita que una variable del tipo array reciba una gran
+cantidad de parametros.
+
+Ejemplo en funciones:*/
+
+function rest(first:any, second:any, ...allOthers:any){
+    console.log(allOthers);
+}
+//Luego llamamos la funcion con los siguientes parametros
+rest('1','2','3','4','5'); //RETORNA 3,4,5
+
+
+/*TIPOS NULL Y UNDEFINED 
+"Los tipos null y undefined son subtipos de todos los demas tipos. No 
+es posible hacer referencia explicita a los tipos null y undefined. Solo
+se puede hacer referencia a los valores de esos tipos mediante los literales
+null y undefined"*/

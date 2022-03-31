@@ -245,4 +245,52 @@ rest('1', '2', '3', '4', '5'); //RETORNA 3,4,5
 "Los tipos null y undefined son subtipos de todos los demas tipos. No
 es posible hacer referencia explicita a los tipos null y undefined. Solo
 se puede hacer referencia a los valores de esos tipos mediante los literales
-null y undefined"*/ 
+null y undefined"*/
+//ASERCIÓN DE TIPOS (AS)
+/*Una aserción de tipos le indica al compilador "confia en mi, sé lo que
+estoy haciendo". Se parece al casting en otros lenguajes de programacion
+pero no tiene impacto en tiempo de ejecucion sino que le dice al compilador
+el tipo de datos en cuestion a fin de acceder a los métodos, propiedades, etc.
+del tipo de datos en tiempo de desarrollo.
+
+Sintaxis(dos posibles)*/
+//Primera posibilidad
+nombre.toUpperCase();
+//Segunda posibilidad
+nombre.toUpperCase();
+// ------FUNCIONES...-----
+/*Una funcion es un conjunto de instrucciones o sentecias que se agrupan
+para realizar una tarea concreta y que se pueden reutilizar fácilmente
+y se caracterizan porque:
+
+    --Deben ser invocadas por su nombre
+    --Permiten simplificar el cófigo haciendo más legible y reutilizable
+
+La declaración de una función consiste en:
+
+    --Un nombre
+    --Una lista de parámetros o argumentos encerrados entre paréntesis
+    --Conjunto de sentencias o instrucciones encerradas entre llaves.
+
+Sintaxis: */
+function nombre_1(parametro1, parametro2) {
+    //**Instrucciones a ejecutar */
+}
+/* Ejemplo
+
+function calcularIva (productos:Producto[]):[number,number]{
+    let total= 0;
+    productos.forEach(({precio}))=>{
+        total+=precio;
+    });
+    return [total, total*0,15];
+}
+
+
+Clase de Producto
+
+class Producto {
+    precio:number;
+}
+
+*/ 

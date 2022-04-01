@@ -1,4 +1,5 @@
 "use strict";
+// PROGRAMACION ORIENTADA A OBJETOS EN TYPESCRIPT
 /*  Typescript es un lenguaje de programacion de codigo abierdo creado
 por el equipo de Microsoft como una solucion al desarrollo de aplicaciones
 de gran escala con Javascript dado que este último carece de clases
